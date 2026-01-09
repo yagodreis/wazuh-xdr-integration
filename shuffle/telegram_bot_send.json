@@ -1,0 +1,15 @@
+{
+  "chat_id": "MY_CHAT_ID_TELEGRAM",
+  "parse_mode": "HTML",
+  "text": "<b>🚨 ALERTA DE VULNERABILIDADE DETECTADO!</b>\n\n<b>📌 Título:</b> $exec.title\n<b>🕒 Data e Hora:</b> $filter.message\n\n<b>⚠️ Nível:</b> $exec.all_fields.rule.level\n\n<b>📝 Descrição:</b>\n<code>$exec.all_fields.rule.description</code>\n\n<b>💻 Agente:</b> $exec.all_fields.agent.name\n<b>🆔 ID da Regra:</b> <code>$exec.rule_id</code>\n\n<i>Enviado automaticamente pelo Wazuh → Shuffle → Telegram</i>",
+  "reply_markup": {
+    "inline_keyboard": [
+      [
+        {
+          "text": "🔍 Ver Detalhes da CVE (Wazuh)",
+          "url": "$exec.all_fields.data.vulnerability.scanner.reference"
+        }
+      ]
+    ]
+  }
+}
